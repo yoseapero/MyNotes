@@ -17,6 +17,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainView{
+    private static final int INTENT_EDIT = 200;
+    private static final int INTENT_ADD = 100;
     FloatingActionButton fab;
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefresh;
@@ -39,8 +41,11 @@ public class MainActivity extends AppCompatActivity implements MainView{
 
         fab = findViewById(R.id.add);
         fab.setOnClickListener(view ->
-                startActivity(new Intent(this, EditorActivity.class ))
+                startActivityForResult(
+                        new Intent(this, EditorActivity.class),
+                        INTENT_ADD)
         );
+
 
         presenter = new MainPresenter(this);
         presenter.getData();
@@ -49,12 +54,33 @@ public class MainActivity extends AppCompatActivity implements MainView{
                 () -> presenter.getData()
         );
         itemClickListener = ((view, position) ->{
-                //........
+            int id = note.get(position).getId();
             String title = note.get(position).getTitle();
+            String notes = note.get(position).getNote();
+            int color = note.get(position).getColor();
+
+            Intent intent = new Intent(this, EditorActivity.class);
+            intent.putExtra("id", id);
+            intent.putExtra("title", title);
+            intent.putExtra("note", notes);
+            intent.putExtra("color", color);
+            startActivityForResult(intent, INTENT_EDIT);
+
             Toast.makeText(this,title, Toast.LENGTH_SHORT).show();
         });
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == INTENT_ADD && resultCode == RESULT_OK) {
+            presenter.getData(); //reload data
+        }
+            else if (requestCode == INTENT_EDIT && resultCode == RESULT_OK) {
+            presenter.getData(); //reload data
+        }
+
+    }
     @Override
     public void showLoading() {
         swipeRefresh.setRefreshing(true);
