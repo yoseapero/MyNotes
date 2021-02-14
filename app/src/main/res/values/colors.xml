@@ -10,7 +10,6 @@
     <color name="yellow">#d0fc7d</color>
     <color name="pink">#ed579a</color>
     <color name="green">#2aed76</color>
-    <color name="gray">#808080</color>
 
     <array name="demo_colors">
         <item>@color/white</item>
@@ -18,7 +17,6 @@
         <item>@color/yellow</item>
         <item>@color/pink</item>
         <item>@color/green</item>
-        <item>@color/gray</item>
     </array>
 
 </resources>

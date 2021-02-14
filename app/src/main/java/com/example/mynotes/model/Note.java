@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

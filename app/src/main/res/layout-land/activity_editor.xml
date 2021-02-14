@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".activity.editor.EditorActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="16dp">
 
         <EditText
             android:id="@+id/title"
-            android:hint="@string/to_do"
-            android:textSize="25sp"
-            android:inputType="textCapSentences"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:ignore="Autofill"/>
+            android:hint="@string/to_do"
+            android:inputType="textCapSentences"
+            android:textSize="25sp"
+            tools:ignore="Autofill" />
+
         <EditText
             android:id="@+id/note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/title"
+            android:layout_marginTop="20dp"
+            android:gravity="top|start"
             android:hint="@string/enter_note"
             android:inputType="textMultiLine"
             android:minLines="6"
-            android:gravity="top|start"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             tools:ignore="Autofill" />
 
         <com.thebluealliance.spectrum.SpectrumPalette
             android:id="@+id/palette"
-            android:layout_below="@+id/note"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="match_parent"
+            android:layout_width="330dp"
             android:layout_height="match_parent"
-            app:spectrum_colors="@array/demo_colors"/>
+            android:layout_below="@+id/note"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            app:spectrum_colors="@array/demo_colors" />
 
         <!-- hint => for add a caption on edit text
             use alt+enter for add a variable for caption

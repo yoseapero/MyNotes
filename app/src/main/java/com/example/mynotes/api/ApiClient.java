@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
