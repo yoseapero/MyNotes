@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyNotes</string>
+    <string name="app_name">AperoNote</string>
     <string name="enter_note">Enter a note...</string>
     <string name="to_do">To do</string>
     <string name="save">Save</string>

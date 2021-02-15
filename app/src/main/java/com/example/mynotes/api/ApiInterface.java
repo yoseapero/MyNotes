@@ -33,4 +33,8 @@ public interface ApiInterface {
             @Field("color") int color
     );
 
+    @FormUrlEncoded
+    @POST("delete.php")
+    Call<Note> deleteNote(@Field("id") int id);
+
 }
